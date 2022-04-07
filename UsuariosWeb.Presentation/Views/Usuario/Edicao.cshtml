@@ -1,0 +1,53 @@
+﻿@model UsuariosWeb.Presentation.Models.UsuariosEdicaoModel
+@{
+    ViewData["Title"] = "Edicao";
+    Layout = "~/Views/Shared/Layout.cshtml";
+}
+
+
+
+<div class="card bg-secondary text-light">
+    <div class="card-body">
+        <h2>Edição de Conta de Usuário</h2>
+        <p>Preencha os campos abaixo para criar um usuário.</p>
+        <hr/>
+        @using(Html.BeginForm())
+        {
+            <div class="mb-3">
+                <label>Nome:</label>    
+                @Html.TextBoxFor(model => model.Nome, new {@class = "form-control bg-dark text-light"})
+                <span class="text-danger">
+                    <strong>@Html.ValidationMessageFor(model => model.Nome)</strong>
+                </span>
+            </div>
+
+            <div class="mb-3">
+                <label>Email de acesso:</label>    
+                @Html.TextBoxFor(model => model.Email, new {@class = "form-control bg-dark text-light"})
+                <span class="text-danger">
+                    <strong>@Html.ValidationMessageFor(model => model.Email)</strong>
+                </span>
+            </div>
+
+            <div class="mb-3">
+                <label>Perfil de acesso:</label>    
+                @Html.DropDownListFor(model => model.IdPerfil, Model.ListagemPerfis, "Escolha uma opção", new { @class = "form-select bg-dark text-light" })
+                <span class="text-danger">
+                    <strong>@Html.ValidationMessageFor(model => model.IdPerfil)</strong>
+                </span>
+            </div>
+            <div>
+                @Html.HiddenFor(model => model.IdUsuario)
+            </div>
+           
+
+            <div class="mb-3">
+                <div class="d-grid">
+                <input type="submit" value="Salvar Alterações" class="btn btn-info"/>
+                </div>
+            </div>
+        }                
+    </div>
+</div>
+
+

@@ -1,0 +1,35 @@
+﻿@* Definindo a classe de modelo da página *@
+@model UsuariosWeb.Presentation.Models.UsuariosMinhaContaModel
+
+@{
+    ViewData["Title"] = "MinhaConta";
+    Layout = "~/Views/Shared/Layout.cshtml";
+}
+
+<div class="card bg-secondary text-light">
+    <div class="card-body">
+        <h2>Minha Conta de Usuário</h2>
+        <p>Visualização dos dados do usuário autenticado.</p>
+        <hr/>
+
+        <div class="mb-3">
+            Nome do Usuário: <strong class="text-info">@Model.Nome</strong>
+        </div>
+
+        <div class="mb-3">
+            Email de Acesso: <strong class="text-info">@Model.Email</strong>
+        </div>
+
+        <div class="mb-3">
+            Perfil de Acesso: <strong class="text-info">@Model.Perfil</strong>
+        </div>
+
+        <div class="mb-3">
+            Cadastrado no Sistema em: <strong class="text-info">@Model.DataCadastro.ToString("dd/MM/yyyy HH:mm")</strong>
+        </div>
+
+    </div>
+</div>
+
+
+
